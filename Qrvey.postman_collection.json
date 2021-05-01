@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "394099df-ea86-4f73-bf22-1a75491a696f",
+		"name": "Qrvey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"nuevo\",\n    \"username\": \"amit.bhatnagar\",\n    \"email\": \"amit1.bhatnaga33r@qrvey1.com\",\n    \"company\": {\n        \"name\": \"Qrvey\",\n        \"position\": \"Chief Architect\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/person/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"person",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/person/608dbdf33b51d65b11441f6e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"person",
+						"608dbdf33b51d65b11441f6e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Amit Bhatnagar Editado\",\n    \"username\": \"amit.bhatnagar\",\n    \"email\": \"amit.bhatnasssssgar@qrvey.com\",\n    \"company\": {\n        \"name\": \"position\",\n        \"position\": \"Chief Architect\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/person/608dbdb43b51d65b11441f6d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"person",
+						"608dbdb43b51d65b11441f6d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/person/608dbdf33b51d65b11441f6e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"person",
+						"608dbdf33b51d65b11441f6e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
