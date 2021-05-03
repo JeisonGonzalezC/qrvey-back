@@ -1,7 +1,20 @@
 import { Request, Response } from 'express';
 import { IPersonArgs, PersonModel } from '../models/Person';
 import excel from "exceljs";
+import PDFDocument from 'pdfkit';
+import fs from 'fs';
+import { IPerson } from '../schemas/PersonSchema';
 
+interface IArgsTable {
+    doc: any;
+    position: any;
+    _id: string;
+    name: String;
+    username: String;
+    email: String;
+    company_name: String;
+    company_position: String;
+}
 class PersonController {
      /**
      * 
@@ -115,6 +128,53 @@ class PersonController {
         } catch (error) {
             console.error(error)
         }
+    }
+
+    public async pdf(_req: Request, res: Response) {
+        try {
+            // Find persons array
+            const persons = await PersonModel.index();
+            if(!persons){
+                res.status(404).json();
+                return;
+            }
+            let doc = new PDFDocument();
+            let writeStream = fs.createWriteStream('Persons.pdf');
+            doc.pipe(writeStream);
+            personController.generateInvoiceTable(doc, persons);
+
+            doc.end();
+            res.status(200).json();
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    public async generateInvoiceTable(doc:any, invoice:IPerson[]) {
+        for (let i = 0; i < invoice.length; i++) {
+            const item = invoice[i];
+            const position = (i + 1) * 30;
+            personController.generateTableRow({
+                doc,
+                position,
+                _id: item.id,
+                name: item.name,
+                username: item.username,
+                email: item.email,
+                company_name: item.company.name,
+                company_position: item.company.position
+            });
+        }
+    }
+
+    public async generateTableRow(args:IArgsTable) {
+        const {doc, position: y, _id, company_position, company_name, username} = args;
+        doc
+          .fontSize(10)
+          .text(_id, 100, y)
+          .text(username, 300, y, { width: 90, align: "right" })
+          .text(company_name, 500, y, { width: 90, align: "right" })
+          .text(company_position, 0, y, { align: "right" });
     }
 }
 export const personController = new PersonController();

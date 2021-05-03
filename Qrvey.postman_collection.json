@@ -121,6 +121,46 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Excel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/files/excel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"files",
+						"excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pdf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/files/pdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"files",
+						"pdf"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -31,13 +31,15 @@ de datos, y esas mismas funcionalides se prueban en conjunto.
 
 Las pruebas sobre los controladores no se realizaron ya que el controlador esta sirviendo solo de puente para la llegada del request y para la respuesta de los modelos.
 
-La acción del PDF  no se desarrollo al no tener disponile ayuda del front para renderizar en HTML
-La data que se debe cargar en el PDF.
-
 Los Métodos se encuentran documentados con lo que se debe recibir y la respuesta que se espera.
 De todas formas se uso Typescript para un mayor tipado de los datos y poder tener mucha
 mayor legilibilidad al leer el código.
 
+La acción del excel puede ejecutarse desde el navegador para que pueda ayudar a descargar el archivo excel, ya que desde postman muestra el binario del archivo.
+
+Para la acción del pdf el archivo se guarda con el nombre Persons.pdf en la raíz del poroyecto.
+
 En la raíz del proyecto hay un archivo llamado
 ### Qrvey.postman_collection.json
 Que tiene la documentación de POSTMAN que se uso para las pruebas de la API
+
